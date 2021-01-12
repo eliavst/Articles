@@ -300,16 +300,16 @@ def cropsBarHZonesWFArea(df_g_zone, crop):
     ##LABELS
     ax1.set_ylabel('ET zones')
     ax2.set_ylabel('')
-    ax1.set_xlabel('Water footprint (m$^3$/ton)')
-    ax2.set_xlabel('Cultivation area (ha)')
+    ax1.set_xlabel('Water footprint (m$^3$/ton)',labelpad=10)
+    ax2.set_xlabel('Cultivation area (ha)',labelpad=10)
     ax1.grid(axis='x')
     ax2.grid(axis='x')
     ax1.text(.05,.99,'A', fontsize=14, transform=ax1.transAxes, weight='bold')
     ax2.text(.05,.99,'B', fontsize=14, transform=ax2.transAxes, weight='bold')
     ## spacing
     plt.subplots_adjust(wspace=0.05)
-    ax1.tick_params(bottom=False)
-    ax2.tick_params(bottom=False)
+    ax1.tick_params(bottom=False, left=False)
+    ax2.tick_params(bottom=False, left=False)
 
     fig.savefig('{}crops/{}/WF_area.jpg'.format(savefolder,crop), bbox_inches='tight',dpi=300)
 
@@ -328,9 +328,9 @@ def cropsBarHZones(df, y, ylabel, savename, crop):
     if df[y].min() < 0:
         ax.axhline(0, color='black')
 
-    ax.set_xlabel(ylabel)
+    ax.set_xlabel(ylabel, labelpad=10)
     ax.set_ylabel('ET zones')
-    ax.tick_params(bottom=False)
+    ax.tick_params(bottom=False, left=False)
 
     ax.grid(axis='x')
     fig.savefig('{}crops/{}/{}'.format(savefolder,crop,savename), bbox_inches='tight',dpi=300)
